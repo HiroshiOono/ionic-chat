@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {FormsModule  } from '@angular/forms'
+import { FormsModule } from '@angular/forms'
 import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { SignupPage } from './signup/signup.page';
@@ -12,8 +12,8 @@ const routes: Routes =[
     component: SignupPage
   },
   {
-      path: 'singin',
-      component: SigninPage
+    path: 'singin',
+    component: SigninPage
   }
 ];
 
