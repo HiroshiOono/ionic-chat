@@ -18,7 +18,7 @@
     </ion-list>
 
     <div class="ion-text-center ion-padding-top">
-      <ion-button type="submit" shape="round" [disabled]="!f.form.valid">>ログイン</ion-button>
+      <ion-button type="submit" shape="round" [disabled]="!f.form.valid || loading">>ログイン</ion-button>
     </div>
 
     <div class="ion-text-center ion-padding-top">
