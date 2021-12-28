@@ -16,6 +16,22 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
  
 import { environment } from '../environments/environment'
 
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { Injectable } from '@angular/core';
+
+
+@Injectable()
+export class IonicGestureConfig extends HammerGestureConfig {
+  buildHammer(element: HTMLElement){
+    const mc = new(window as any).Hammer(element);
+    for( const eventName of Object.keys(this.overrides)){
+      mc.get(eventName).set(this.overrides[eventName]);
+    }
+    return mc;
+  }
+}
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -32,6 +48,7 @@ import { environment } from '../environments/environment'
     StatusBar,
     SplashScreen,
     AngularFireAuthGuard,
+    { provide: HAMMER_GESTURE_CONFIG, useClass: IonicGestureConfig},    
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
